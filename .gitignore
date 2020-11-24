@@ -2,6 +2,7 @@
 .Xresources
 .bash_history
 .cache
+.cargo
 .compose-cache
 git
 i3
@@ -12,8 +13,12 @@ pulse
 .nix-channels
 .nix-defexpr
 .nix-profile
+.rustup
 .xsession-errors
 .xsession-errors.old
 .zcompdump
 .zsh_history
 .zshrc
+.ssh
+local
+

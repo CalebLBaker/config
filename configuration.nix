@@ -94,6 +94,15 @@
       git
       home-manager
       neovim
+
+      # Needed for building micros
+      clang
+      gnumake
+      grub2
+      nasm
+      qemu
+      rustup
+      xorriso
     ];
     variables = {
       EDITOR = "nvim";
