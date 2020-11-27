@@ -13,11 +13,16 @@
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    grub.useOSProber = true;
+  boot = {
+    kernelModules = [ "kvm-intel" ];
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      grub.useOSProber = true;
+    };
   };
+
+  virtualisation.libvirtd.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -39,7 +44,7 @@
       isNormalUser = true;
       home = "/home/caleb";
       description = "Caleb Baker";
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" ];
       initialPassword = "password";
     };
   };
@@ -100,7 +105,7 @@
       gnumake
       grub2
       nasm
-      qemu
+      qemu_kvm
       rustup
       xorriso
     ];

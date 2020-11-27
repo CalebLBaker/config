@@ -4,6 +4,7 @@
 .cache
 .cargo
 .compose-cache
+.config
 git
 i3
 pulse
