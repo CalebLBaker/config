@@ -66,8 +66,13 @@
     };
   };
 
-  # Enable the GNOME 3 Desktop Environment.
   services = {
+    httpd = {
+      adminAddr = "calebbaker774@gmail.com";
+      enable = true;
+      extraConfig = "AddType application/wasm .wasm";
+      virtualHosts.localhost.documentRoot = "/srv";
+    };
     xserver = {
       enable = true;
       windowManager.i3.enable = true;
@@ -89,7 +94,10 @@
   
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware = {
+    opengl.driSupport32Bit = true;
+    pulseaudio.enable = true;
+  };
 
   # List packages installed in system profile. To search, run:
   environment = {
@@ -99,6 +107,8 @@
       git
       home-manager
       neovim
+      steam
+      texlive.combined.scheme-full
 
       # Needed for building micros
       clang
@@ -108,6 +118,9 @@
       qemu_kvm
       rustup
       xorriso
+
+      # Used for optimizing web assembly
+      binaryen
     ];
     variables = {
       EDITOR = "nvim";

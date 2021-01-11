@@ -20,7 +20,10 @@
             enable = true;
             enableCompletion = true;
             autocd = true;
-            initExtra = "PROMPT='%~ %# '";
+            sessionVariables = {
+              PROMPT = "%~ %# ";
+              PATH = "$PATH:$HOME/.cargo/bin:.";
+            };
         };
         neovim = {
             enable = true;
@@ -54,7 +57,7 @@
               set breakindent
               set breakindentopt=shift:2
               set number relativenumber
-              set colorcolumn=120
+              set colorcolumn=100
               set spelllang=en
               autocmd FileType text,tex,latex,plaintex setlocal spell
               set scrolloff=8
