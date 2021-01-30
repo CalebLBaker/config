@@ -18,7 +18,11 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      grub.useOSProber = true;
+      grub = {
+        configurationLimit = 10;
+        useOSProber = true;
+      };
+      timeout = 1800;
     };
   };
 
@@ -40,12 +44,21 @@
   users = {
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
-    users.caleb = {
-      isNormalUser = true;
-      home = "/home/caleb";
-      description = "Caleb Baker";
-      extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" ];
-      initialPassword = "password";
+    users = {
+      caleb = {
+        isNormalUser = true;
+        home = "/home/caleb";
+        description = "Caleb Baker";
+        extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" ];
+        initialPassword = "";
+      };
+      sky = {
+        isNormalUser = true;
+        home = "/home/sky";
+        description = "Sky";
+        extraGroups = [ "wheel" "networkmanager" ];
+        initialPassword = "";
+      };
     };
   };
 
@@ -75,14 +88,11 @@
     };
     xserver = {
       enable = true;
+      desktopManager.cinnamon.enable = true;
       windowManager.i3.enable = true;
       displayManager = {
         lightdm.enable = true;
         defaultSession = "none+i3";
-        autoLogin = {
-          enable = true;
-          user = "caleb";
-        };
       };
       videoDrivers = [ "modesetting" "nvidida" ];
       useGlamor = true;

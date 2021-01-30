@@ -43,6 +43,7 @@
               inoremap <C-f> <C-x><C-o>
               tnoremap <ESC> <C-\><C-n>
               inoremap <C-l> ->
+              inoremap <C-w> <ESC>:pclose<CR>i
               nnoremap <C-j> :m+<CR>
               nnoremap <C-k> :m-2<CR>
               nnoremap <C-n> :noh<CR>
@@ -94,6 +95,11 @@
                     };
                 };
                 modifier = "Mod4";
+                startup = [ {
+                    command = "i3-msg workspace 1";
+                    always = true;
+                    notification = false;
+                } ];
                 window.titlebar = false;
                 workspaceAutoBackAndForth = true;
             };

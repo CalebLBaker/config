@@ -3,6 +3,7 @@
 .bash_history
 .cache
 .cargo
+.cinnamon
 .compose-cache
 .config
 git
@@ -30,4 +31,5 @@ local
 Desktop
 Downloads
 FiraxisLive
+.zoom
 
