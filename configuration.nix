@@ -119,6 +119,7 @@
       neovim
       steam
       texlive.combined.scheme-full
+      python3
 
       # Needed for building micros
       clang
@@ -131,6 +132,9 @@
 
       # Used for optimizing web assembly
       binaryen
+
+      vscode
+      google-chrome
     ];
     variables = {
       EDITOR = "nvim";

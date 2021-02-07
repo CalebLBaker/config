@@ -77,6 +77,7 @@
                     "${modifier}+k" = "focus up";
                     "${modifier}+l" = "focus right";
                     "${modifier}+c" = "exec firefox";
+                    "${modifier}+Ctrl+r" = "exec python ~/toggle-rotate.py";
                     XF86AudioRaiseVolume = "exec --no-startup-id pactl set-sink-volume 0 +5%";
                     XF86AudioLowerVolume = "exec --no-startup-id pactl set-sink-volume 0 -5%";
                     XF86AudioMute = "exec --no-startup-id pactl set-sink-mute 0 toggle";
@@ -96,7 +97,7 @@
                 };
                 modifier = "Mod4";
                 startup = [ {
-                    command = "i3-msg workspace 1";
+                    command = "i3-msg workspace 10 && i3-msg workspace 1";
                     always = true;
                     notification = false;
                 } ];

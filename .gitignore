@@ -15,7 +15,9 @@ pulse
 .nix-channels
 .nix-defexpr
 .nix-profile
+.python_history
 .rustup
+.vscode
 .xsession-errors
 .xsession-errors.old
 .zcompdump
