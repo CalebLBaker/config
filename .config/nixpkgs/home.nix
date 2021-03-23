@@ -22,7 +22,7 @@
             autocd = true;
             sessionVariables = {
               PROMPT = "%~ %# ";
-              PATH = "$PATH:$HOME/.cargo/bin:.";
+              PATH = "$PATH:$HOME/.cargo/bin:.:/usr/local/bin";
             };
         };
         neovim = {

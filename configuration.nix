@@ -135,6 +135,8 @@
 
       vscode
       google-chrome
+
+      binutils
     ];
     variables = {
       EDITOR = "nvim";
