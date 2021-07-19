@@ -34,4 +34,10 @@ Desktop
 Downloads
 FiraxisLive
 .zoom
+.git
+.npm
+id.pem
+id.pem.pub
+node_modules
+package-lock.json
 

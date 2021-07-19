@@ -26,7 +26,9 @@
     };
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -84,7 +86,7 @@
       adminAddr = "calebbaker774@gmail.com";
       enable = true;
       extraConfig = "AddType application/wasm .wasm";
-      virtualHosts.localhost.documentRoot = "/srv";
+      virtualHosts.localhost.documentRoot = "/home/caleb/local/srv";
     };
     xserver = {
       enable = true;
@@ -112,31 +114,51 @@
   # List packages installed in system profile. To search, run:
   environment = {
     systemPackages = with pkgs; [
+
+      # Mandatory packages for basic computer maintenance
       brightnessctl
-      firefox
       git
       home-manager
+      python3
       neovim
+
+      # I know what these are
+      vivaldi
+      gdb
+      google-chrome
+      rust-analyzer
       steam
       texlive.combined.scheme-full
-      python3
+      vscode
+      teams
 
-      # Needed for building micros
+      # Needed for building rust programs
       clang
-      gnumake
-      grub2
-      nasm
-      qemu_kvm
       rustup
-      xorriso
+
+      # Used for getting summary information about files
+      file
 
       # Used for optimizing web assembly
-      binaryen
+      # binaryen
 
-      vscode
-      google-chrome
+      # Needed for building micros
+      # gnumake
+      # grub2
+      # nasm
+      # qemu_kvm
+      # xorriso
 
+      # Trying to be able to compile against openssl
+      openssl.dev
+      pkgconfig
+
+      # Some rust crates assume this is installed
       binutils
+      
+      # Used for installing firebase
+      nodejs
+
     ];
     variables = {
       EDITOR = "nvim";

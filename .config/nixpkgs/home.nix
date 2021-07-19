@@ -22,13 +22,14 @@
             autocd = true;
             sessionVariables = {
               PROMPT = "%~ %# ";
-              PATH = "$PATH:$HOME/.cargo/bin:.:/usr/local/bin";
+              PATH = "$PATH:$HOME/.cargo/bin:.:$HOME/bin:$HOME/node_modules/.bin";
             };
         };
         neovim = {
             enable = true;
             plugins = with pkgs.vimPlugins; [
                 LanguageClient-neovim
+                zig-vim
             ];
             viAlias = true;
             vimAlias = true;
@@ -36,7 +37,7 @@
 
             extraConfig = ''
               packadd termdebug
-              let g:LanguageClient_serverCommands = { 'cpp': ['clangd'], 'rust': ['rls'] }
+              let g:LanguageClient_serverCommands = { 'cpp': ['clangd'], 'rust': ['rust-analyzer'], }
               nnoremap gd :call LanguageClient#textDocument_definition()<CR>
               nnoremap <F2> :call LanguageClient#textDocument_rename()<CR>
               nnoremap <C-g> :call LanguageClient#textDocument_references()<CR>
@@ -76,8 +77,8 @@
                     "${modifier}+j" = "focus down";
                     "${modifier}+k" = "focus up";
                     "${modifier}+l" = "focus right";
-                    "${modifier}+c" = "exec firefox";
-                    "${modifier}+Ctrl+r" = "exec python ~/toggle-rotate.py";
+                    "${modifier}+c" = "exec vivaldi";
+                    "${modifier}+Ctrl+r" = "exec python ~/bin/toggle-rotate.py";
                     XF86AudioRaiseVolume = "exec --no-startup-id pactl set-sink-volume 0 +5%";
                     XF86AudioLowerVolume = "exec --no-startup-id pactl set-sink-volume 0 -5%";
                     XF86AudioMute = "exec --no-startup-id pactl set-sink-mute 0 toggle";

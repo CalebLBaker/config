@@ -1,3 +1,5 @@
+#!/run/current-system/sw/bin/python
+
 import subprocess
 
 screen = "DP-1"
