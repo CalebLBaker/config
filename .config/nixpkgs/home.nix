@@ -29,7 +29,6 @@
             enable = true;
             plugins = with pkgs.vimPlugins; [
                 LanguageClient-neovim
-                zig-vim
             ];
             viAlias = true;
             vimAlias = true;
@@ -63,6 +62,8 @@
               set spelllang=en
               autocmd FileType text,tex,latex,plaintex setlocal spell
               set scrolloff=8
+              set foldmethod=indent
+              set nofoldenable
             '';
 
         };
